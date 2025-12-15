@@ -1,7 +1,7 @@
 # terraform.tfvars
 
 # Resource Group
-rg_name  = "ah-azvm-rg"
+rg_name  = "ah-k8s-rg"
 location = "East US"
 
 # Tags
@@ -28,7 +28,7 @@ nic_name = "ah-azvm-nic"
 vm_name        = "ah-azvm-vm"
 vm_size        = "Standard_B2s"
 admin_username = "azureuser"
-admin_password = "P@ssword1234!"   
+admin_password = "P@ssword1234!"
 
 # Path to your SSH public key file for Linux VM
 # ssh_public_key_path = "~/.ssh/id_rsa.pub"
