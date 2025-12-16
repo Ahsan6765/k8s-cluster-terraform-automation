@@ -5,7 +5,7 @@ output "resource_group_name" {
 
 output "vnet_name" {
   description = "The name of the Virtual Network"
-  value = module.network.vnet_id
+  value       = module.network.vnet_id
 }
 
 output "subnet_id" {
@@ -21,10 +21,13 @@ output "public_ip_address" {
 
 output "vm_names" {
   description = "List of VM names"
-  value       = [for m in values(module.linux_vm) : m.vm_name]
+  value = concat(
+    [for m in values(module.k8s_master) : m.vm_name],
+    [for m in values(module.k8s_worker) : m.vm_name]
+  )
 }
 
 output "vm_private_ips" {
   description = "List of private IPs for VMs"
-  value       = [for m in values(module.linux_vm) : m.vm_private_ip]
+  value       = [for n in values(module.nic) : n.private_ip]
 }

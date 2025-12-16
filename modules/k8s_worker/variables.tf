@@ -8,8 +8,13 @@ variable "location" {
   type        = string
 }
 
-variable "subnet_id" {
-  description = "ID of the subnet"
+variable "network_interface_id" {
+  description = "ID of the network interface for the worker"
+  type        = string
+}
+
+variable "public_ip_address" {
+  description = "Public IP address for SSH access"
   type        = string
 }
 
@@ -39,7 +44,7 @@ variable "ssh_private_key_path" {
 }
 
 variable "join_command_file" {
-  description = "Path to the join command file"
+  description = "Path to the file containing the kubeadm join command"
   type        = string
 }
 

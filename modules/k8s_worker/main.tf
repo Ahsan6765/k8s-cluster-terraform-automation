@@ -1,33 +1,12 @@
 # modules/k8s_worker/main.tf
 
-# Public IP for Worker
-module "public_ip" {
-  source              = "../public_ip"
-  name                = "${var.vm_name}-pip"
-  location            = var.location
-  resource_group_name = var.resource_group_name
-  allocation_method   = "Static"
-  tags                = merge(var.tags, { Name = "${var.vm_name}-pip", Role = "worker" })
-}
-
-# Network Interface for Worker
-module "nic" {
-  source              = "../nic"
-  name                = "${var.vm_name}-nic"
-  location            = var.location
-  resource_group_name = var.resource_group_name
-  subnet_id           = var.subnet_id
-  public_ip_id        = module.public_ip.id
-  tags                = merge(var.tags, { Name = "${var.vm_name}-nic", Role = "worker" })
-}
-
 # Worker Virtual Machine
 module "vm" {
   source               = "../linux_vm"
   name                 = var.vm_name
   location             = var.location
   resource_group_name  = var.resource_group_name
-  network_interface_id = module.nic.id
+  network_interface_id = var.network_interface_id
   admin_username       = var.admin_username
   ssh_public_key_path  = var.ssh_public_key_path
   vm_size              = var.vm_size
@@ -38,15 +17,17 @@ module "vm" {
 resource "null_resource" "worker_setup" {
   depends_on = [module.vm]
 
+  # Trigger re-provisioning if script changes
   triggers = {
     script_hash = filemd5("${path.module}/../../kubeadm-scripts/kubeadm-worker.sh")
+    vm_id       = module.vm.vm_id
   }
 
   connection {
     type        = "ssh"
     user        = var.admin_username
     private_key = file(var.ssh_private_key_path)
-    host        = module.public_ip.ip_address
+    host        = var.public_ip_address
     timeout     = "30m"
   }
 
@@ -73,9 +54,9 @@ resource "null_resource" "worker_setup" {
 
   provisioner "remote-exec" {
     inline = [
-      "echo 'Joining cluster...'",
+      "echo 'Joining worker to Kubernetes cluster...'",
       "sudo bash /tmp/join-command.txt",
-      "echo 'Worker joined cluster successfully!'"
+      "echo 'Worker successfully joined the cluster!'"
     ]
   }
 }

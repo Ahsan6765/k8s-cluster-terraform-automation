@@ -8,8 +8,13 @@ variable "location" {
   type        = string
 }
 
-variable "subnet_id" {
-  description = "ID of the subnet"
+variable "network_interface_id" {
+  description = "ID of the network interface to attach to the VM"
+  type        = string
+}
+
+variable "public_ip_address" {
+  description = "Public IP address for SSH connection (provisioning)"
   type        = string
 }
 

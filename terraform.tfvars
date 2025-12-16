@@ -19,13 +19,10 @@ subnet_prefixes    = ["10.0.1.0/24", "10.0.2.0/24"]
 nsg_name = "ah-azvm-nsg"
 
 # Public IP
-public_ip_name = "ah-azvm-pip"
 
 # NIC
-nic_name = "ah-azvm-nic"
 
 # Linux VM
-vm_name        = "ah-azvm-vm"
 vm_size        = "Standard_B2s"
 admin_username = "azureuser"
 admin_password = "P@ssword1234!"
@@ -34,9 +31,7 @@ admin_password = "P@ssword1234!"
 # ssh_public_key_path = "~/.ssh/id_rsa.pub"
 
 
-ssh_public_key_path = "C:/Users/admin/.ssh/id_rsa.pub"
+ssh_public_key_path = "./ssh/id_rsa.pub"
 
 # Names of VMs to create: master + workers
-# vm_names = ["kmaster", "kworker1", "kworker2"]
 
-vm_names = ["kmaster", "kworker1"]

@@ -1,87 +1,80 @@
-# root/variables.tf
-
 variable "rg_name" {
-  type        = string
   description = "Name of the Resource Group"
+  type        = string
+  default     = "ah-k8s-rg"
 }
 
 variable "location" {
+  description = "Azure Region"
   type        = string
-  description = "Azure region for all resources"
+  default     = "East US"
 }
 
-variable "tags" {
-  type        = map(string)
-  default     = {}
-  description = "Tags to apply to all resources"
-}
-
-# Network
 variable "vnet_name" {
-  type        = string
   description = "Name of the Virtual Network"
+  type        = string
+  default     = "ah-k8s-vnet"
 }
 
 variable "vnet_address_space" {
+  description = "Address space for VNet"
   type        = list(string)
-  description = "Address space for the Virtual Network"
+  default     = ["10.0.0.0/16"]
 }
 
 variable "subnet_prefixes" {
+  description = "Prefixes for Subnets"
   type        = list(string)
-  description = "Address prefixes for the subnets"
+  default     = ["10.0.1.0/24", "10.0.2.0/24"]
 }
 
-# NSG
 variable "nsg_name" {
-  type        = string
   description = "Name of the Network Security Group"
-}
-
-# Public IP
-variable "public_ip_name" {
   type        = string
-  description = "Name of the Public IP"
-}
-
-# NIC
-variable "nic_name" {
-  type        = string
-  description = "Name of the Network Interface"
-}
-
-# Linux VM
-variable "vm_name" {
-  type        = string
-  description = "Name of the Virtual Machine"
-}
-
-# Names for multiple VMs (master + workers)
-variable "vm_names" {
-  type        = list(string)
-  description = "List of VM names to create (e.g. [\"kmaster\", \"kworker1\", \"kworker2\"])"
-  default     = ["kmaster", "kworker1", "kworker2"]
-}
-
-variable "vm_size" {
-  type        = string
-  default     = "Standard_B1s"
-  description = "Size of the Virtual Machine"
+  default     = "ah-k8s-nsg"
 }
 
 variable "admin_username" {
+  description = "Admin username for VMs"
   type        = string
-  description = "Admin username for the VM"
+  default     = "azureuser"
 }
 
 variable "admin_password" {
+  description = "Admin password for VMs"
   type        = string
   sensitive   = true
-  description = "Admin password for the VM"
 }
 
-# SSH Public Key Path for Linux VM
 variable "ssh_public_key_path" {
+  description = "Path to SSH public key"
   type        = string
-  description = "Path to the SSH public key file for the Linux VM."
+  default     = "./ssh/id_rsa.pub"
+}
+
+variable "ssh_private_key_path" {
+  description = "Path to SSH private key for provisioning connection"
+  type        = string
+  default     = "./ssh/id_rsa"
+}
+
+variable "vm_size" {
+  description = "Size of the VMs"
+  type        = string
+  default     = "Standard_B2s"
+}
+
+variable "vm_names" {
+  description = "List of VM names (must include 'kmaster' for the master node)"
+  type        = list(string)
+  default     = ["kmaster", "kworker1"]
+}
+
+variable "tags" {
+  description = "Tags to apply to resources"
+  type        = map(string)
+  default = {
+    environment = "dev"
+    project     = "k8s-cluster"
+  }
 }
