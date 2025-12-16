@@ -57,6 +57,7 @@ logs/
 kubeconfig
 *.kubeconfig
 .kube/
+join-command.txt
 
 # Temporary files
 *.tmp

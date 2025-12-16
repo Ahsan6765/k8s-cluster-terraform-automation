@@ -1,0 +1,5 @@
+so as you know that here i added the scripts for cluster setup now i want to divide the infrom to 2 sections i means that i want a seprate kmaster vm and seprate worker's infra of terrafrom because i from terraform to first create a infra of master vm and login to vm and install and setup kubeadm cluster setup by using the script which i give you here in the dir of kubeadm-scripts/kubeadm-master.sh and then get the join command and the create a new file with name " join-command" and store the join command here in this file. then start creating worker infra and after infra of worker is created then login to worker and setup and install the kubeadm on working using our script which we mention in the kubeadm-scripts dir's "kubeadm-worker.sh"
+
+after worker infra and exectuting the kubeadm-worker.sh command the get the join command which we store the join-command file and join the worker node the the cluster.
+
+this is our task. lets do this task carefully. I want from you to this task for me and do this very carefully.
