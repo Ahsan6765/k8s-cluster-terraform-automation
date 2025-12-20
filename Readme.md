@@ -53,5 +53,17 @@ eyJhbGciOiJSUzI1NiIsImtpZCI6InlWWmlmOF85QXlCaVJUNHgwN05YeEp3T2Vzdk9aWEl2LXZNbTVu
 
 
 -L 8001:localhost:8001
-ssh -i /home/ahsan-malik/Desktop/k3s-Cluster-infra/ssh/id_rsa -L 8001:localhost:8001 azureuser@52.191.62.164
+ssh -i /home/ahsan-malik/Desktop/k3s-Cluster-infra/ssh/id_rsa -L 8001:localhost:8001 azureuser@172.172.186.199
+ssh -i "/home/ahsan-malik/Desktop/k3s-Cluster-infra/ssh/id_rsa" azureuser@13.90.224.33
+
+
+
+
+-L 8001:localhost:8001
+ssh -i /home/ahsan-malik/Desktop/k3s-Cluster-infra/ssh/id_rsa -L 8001:localhost:8001 azureuser@172.172.186.199
 ssh -i "/home/ahsan-malik/Desktop/k3s-Cluster-infra/ssh/id_rsa" azureuser@172.172.186.199
+
+
+
+
+ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQCubx7NuCevUccnR/Zp52g1QyYhNeihbbny1Uu585NLCxWiKFLEptrUCauEoeXMC69hCSo4Z4vzrJ0OO64eNaeFSKUUktD9yzs75FOpo26O5qWIEFfFg/VY/7ysuHuln1WpwQOv2rFY996d+SHaE+Cwj4Pd1VmPVMeNMJxHr3lCpY3B4bQtS89vCtzz2Z/4DDq2iuzNt3j4kHOgoy+WaI6E9xPWZQhoQN/uUrHSbuey+ziVK5xRXf5QUBsVo9qHa/PFhp9G9xK3Tm6CYMaOf71kZR4XZTcL4Dzlt8GqYbHrUp0UWgAeHCWyJpDRg7IXPeYx4z4dyNOYQF5VMcjvULstqpp/U+aJeS9h7cNmbd4Zu6VeQOkfp/ZrUIpOBujgSfHMDcUvKXzqCaLAY6bWkcz6k8gD8WSF/cDRYeGuP7zH0IL/2wSXIfB6Rvva/L9IEpKJs6njxu5faJAaB0qvmAgYyBdkl+j1PBNH7Ge+tU4xBpDUeyTG2vrSbvyH1OgoVx3qznZFJopXrEwpivxbGCYpmGEl5Zyp4qW+lWWzjK80PuTEStB3RmUUzLX99A1e9gqdhSlO+mxI7kEfXSslxwhZTJr8l1L5FpvuNnpapH4OOad6asGsDC2NcTi0b07VKlJfoPk2jwvVkHHxEfY/0erMK+SAynuVIa1wo6doV64Bhw== ahsan-malik@ubuntu

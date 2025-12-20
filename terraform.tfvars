@@ -33,5 +33,5 @@ admin_password = "P@ssword1234!"
 
 ssh_public_key_path = "./ssh/id_rsa.pub"
 
-# Names of VMs to create: master + workers
+
 

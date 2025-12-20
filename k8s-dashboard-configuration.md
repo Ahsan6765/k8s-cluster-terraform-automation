@@ -200,4 +200,4 @@ ssh -i /home/ahsan-malik/Desktop/k3s-Cluster-infra/ssh/id_rsa azureuser@20.185.8
 
 -L 8001:localhost:8001
 ssh -i /home/ahsan-malik/Desktop/k3s-Cluster-infra/ssh/id_rsa -L 8001:localhost:8001 azureuser@172.173.173.68
-ssh -i "/home/ahsan-malik/Desktop/k3s-Cluster-infra/ssh/id_rsa" azureuser@172.190.58.11
+ssh -i "/home/ahsan-malik/Desktop/k3s-Cluster-infra/ssh/id_rsa" azureuser@13.92.238.92
