@@ -1,0 +1,76 @@
+# Terraform files
+*.tfstate
+*.tfstate.*
+*.tfstate.backup
+.terraform/
+.terraform.lock.hcl
+crash.log
+crash.*.log
+override.tf
+override.tf.json
+*_override.tf
+*_override.tf.json
+.terraformrc
+terraform.rc
+provider.tf
+
+# Sensitive variable files
+terraform.tfvars
+*.tfvars
+!terraform.tfvars.example
+*.auto.tfvars
+*.auto.tfvars.json
+
+# SSH Keys (CRITICAL - never commit private keys)
+ssh/
+*.pem
+*.key
+id_rsa
+id_rsa.pub
+*.ppk
+
+# Azure CLI
+.azure/
+
+# Environment files
+.env
+.env.local
+.env.*.local
+
+# IDE and Editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+logs/
+
+# Backup files
+*.bak
+*.backup
+*.orig
+
+# Kubernetes config files (may contain sensitive data)
+kubeconfig
+*.kubeconfig
+.kube/
+join-command.txt
+
+# Temporary files
+*.tmp
+temp/
+tmp/
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Desktop.ini
